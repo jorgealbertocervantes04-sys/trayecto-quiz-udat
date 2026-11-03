@@ -1,0 +1,30 @@
+TRAYECTO QUIZ × UDAT FORMACIÓN
+VERSIÓN PARA VERCEL CON GOOGLE SHEETS (SIN SUPABASE)
+
+IMPORTANTE: Esta edición se publica en Vercel; NO se abre con doble clic.
+
+PASO 1 — GOOGLE SHEETS
+  • Crea una hoja de cálculo vacía en sheets.google.com (privada).
+  • Extensiones > Apps Script: pega TODO apps-script/Code.gs.
+  • Ejecuta la función configurar, acepta los permisos.
+  • En el registro de ejecución copia GOOGLE_SCRIPT_SECRET.
+  • Se crearán las pestañas Salas, Participantes y Respuestas.
+
+PASO 2 — APPS SCRIPT
+  • Implementar > Nueva implementación > Aplicación web.
+  • Ejecutar como: Yo; Quién tiene acceso: Cualquier persona.
+  • Copia la URL HTTPS que termina en /exec.
+
+PASO 3 — VERCEL
+  • Sube esta carpeta a GitHub e impórtala en vercel.com/new.
+  • Agrega Environment Variables:
+       GOOGLE_SCRIPT_URL      = URL /exec de Apps Script
+       GOOGLE_SCRIPT_SECRET   = secreto generado en configurar
+  • Deploy (o Redeploy al modificar variables).
+  • Prueba /api/game?op=health y crea una sala.
+
+ESTADO: las pruebas automatizadas simulan 30 jugadores correctamente.
+No hay garantía de rendimiento real de 30 jugadores sin un simulacro de carga.
+
+LEE README.md para pasos detallados, advertencias y pruebas.
+NO compartas secretos ni hagas pública la hoja de cálculo.
